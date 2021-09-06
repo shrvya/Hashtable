@@ -70,10 +70,13 @@ public class Hashtable<T, T1> {
 		int count = 0;
 		temp = head;
 		while (temp != null) {
-			if (temp.data == data) {
+
+			if (temp.data.equals(data)) {
+
 				count++;
 			}
 			temp = temp.next;
+
 		}
 		System.out.println("Frequency of '" + data + "' is :" + count);
 	}
@@ -102,12 +105,10 @@ public class Hashtable<T, T1> {
 		if (!isEmpty()) {
 
 			while (tempnode.next != null) {
-
-				System.out.print(tempnode.data + ":\n");
 				frequency(tempnode.data);
 				tempnode = tempnode.next;
 			}
-			System.out.println(tempnode.data);
+
 			frequency(tempnode.data);
 		} else {
 			System.out.println("Queue is empty!!!!");

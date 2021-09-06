@@ -2,6 +2,8 @@ package hashtable;
 
 /*
  * this class will call methods of Hashtable class
+ * String variable sentence takes sentence
+ * words holds each word in sentence.split method is used to split words
  */
 public class HashTest {
 
@@ -9,13 +11,14 @@ public class HashTest {
 		// TODO Auto-generated method stub
 		Hashtable<Integer, String> hash = new Hashtable<Integer, String>();
 
-		hash.addNode(1, "to");
-		hash.addNode(2, "be");
-		hash.addNode(3, "or");
-		hash.addNode(4, "not");
-		hash.addNode(5, "to");
-		hash.addNode(6, "be");
+		String sentence = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves"
+				+ "deliberately into paranoid avoidable situations";
+		String[] words = sentence.toLowerCase().split(" ");
+		int i = 0;
+		for (String word : words) {
+			i++;
+			hash.addNode(i, word);
+		}
 		hash.print();
 	}
-
 }
