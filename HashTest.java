@@ -11,8 +11,8 @@ public class HashTest {
 		// TODO Auto-generated method stub
 		Hashtable<Integer, String> hash = new Hashtable<Integer, String>();
 
-		String sentence = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves"
-				+ "deliberately into paranoid avoidable situations";
+		String sentence = "Paranoids are not paranoid because they are paranoid but because they"
+				+ " keep putting themselves " + "deliberately into paranoid avoidable situations";
 		String[] words = sentence.toLowerCase().split(" ");
 		int i = 0;
 		for (String word : words) {
@@ -20,5 +20,7 @@ public class HashTest {
 			hash.addNode(i, word);
 		}
 		hash.print();
+		hash.delete("avoidable");
+
 	}
 }

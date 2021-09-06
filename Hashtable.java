@@ -50,6 +50,7 @@ public class Hashtable<T, T1> {
 
 					temp.key = keys;
 					temp.data = data;
+
 				}
 				temp = temp.next;
 
@@ -57,28 +58,31 @@ public class Hashtable<T, T1> {
 			head = newnode;
 			head.next = current;
 			current = head;
+
 		}
 
 	}
 
 	/*
-	 * this method takes 1 parameter data.this method will check the number of times
-	 * this data is present in the linked list.variable count is initially 0.with
-	 * the number of times data is present,count increments
+	 * this method takes one parameter data of type T1 this method will delete data
+	 * from linked list current points to head temp points to next element of
+	 * current if data in temp is same as data then that node is eleminated
 	 */
-	public void frequency(T1 data) {
-		int count = 0;
-		temp = head;
+	public void delete(T1 data) {
+		current = head;
+		temp = current.next;
+		if (current.data.equals(data)) {
+			head = current.next;
+		}
 		while (temp != null) {
-
 			if (temp.data.equals(data)) {
-
-				count++;
+				current.next = temp.next;
+				System.out.println("Deleted '" + temp.data + "'");
 			}
 			temp = temp.next;
-
+			current = current.next;
 		}
-		System.out.println("Frequency of '" + data + "' is :" + count);
+		print();
 	}
 
 	/*
@@ -101,15 +105,15 @@ public class Hashtable<T, T1> {
 	 * doesnt return anything this method will call frequency()
 	 */
 	public void print() {
-		Node<T, T1> tempnode = head;
+		temp = head;
 		if (!isEmpty()) {
 
-			while (tempnode.next != null) {
-				frequency(tempnode.data);
-				tempnode = tempnode.next;
+			while (temp.next != null) {
+				System.out.print(temp.data + " -->");
+				temp = temp.next;
 			}
+			System.out.println(temp.data + " ");
 
-			frequency(tempnode.data);
 		} else {
 			System.out.println("Queue is empty!!!!");
 		}
